@@ -38,13 +38,13 @@ public class TetrisGrid{
 		
 		Graphics2D g2 = (Graphics2D) g;
 		g.setColor(Color.black);
-		g.fillRect(0, 0, 300, 600);
+		g.fillRect(0, 0, 700, 600);
 		g.setColor(Color.GRAY);
-		for(int i= 0;i<300; i = i+30) {
+		for(int i= 0;i<301; i = i+30) {
 		g.drawLine(i,0,i,600);
 		}
 		for(int i= 0;i<600; i = i+30) {
-			g.drawLine(0,i,300,i);
+			g.drawLine(0,i,299,i);
 		}
 		
 		//update();

@@ -25,24 +25,30 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	ArrayList<Active> control = new ArrayList<Active>();
 	private Random rnd = new Random();
 	Square square;
-	
+	private static int score = 0;
+	Font f1 = new Font(Font.SERIF, Font.PLAIN, 50);
+	Font f2 = new Font(Font.SERIF, Font.PLAIN, 25);
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		bg.paint(g);
-		//(control.get(0)).paint(g);
-		//System.out.println("" + );
+		
 		for(int r = bgrid.length-1; r>= 0;r--) {
 			for(int c = 0; c < bgrid[r].length;c++) {
 				if(bgrid[r][c] != null) {
 				bgrid[r][c].paints(g);
-				}
 				
-			}
+				}
+			
+				
+		}
 		}
 
-	//System.out.println(control.get(0).b4.y);	
+		g.setFont(f1);
+		g.setColor(Color.yellow);
+		g.drawString("Tetris" , 400, 70);
+		g.setFont(f2);
+		g.drawString("score: " + score , 350,120 );
 		
-	
 	}
 	
 	
@@ -69,23 +75,24 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 		//if()
 		if(((control.get(0).b1.y)/30)+1 != bgrid.length && ((control.get(0).b2.y)/30)+1 != bgrid.length && ((control.get(0).b3.y)/30)+1 != bgrid.length && ((control.get(0).b4.y)/30)+1 != bgrid.length ) {
 			
-			if(noActgrid[((control.get(0).getb1().y)/30)+1][((control.get(0).getb1().x)/30)] != true && 
+			if(noActgrid[((control.get(0).b1.y)/30)+1][((control.get(0).b1.x)/30)] != true && 
 			noActgrid[((control.get(0).b2.y)/30)+1][((control.get(0).b2.x)/30)] != true &&
 			noActgrid[((control.get(0).b3.y)/30)+1][((control.get(0).b3.x)/30)] != true &&
 			noActgrid[((control.get(0).b4.y)/30)+1][((control.get(0).b4.x)/30)] != true) {
 				ActiveDropper();
 			}else {
-			noActgrid[((control.get(0).getb1().y)/30)][((control.get(0).getb1().x)/30)] = true; 
+			noActgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)] = true; 
 			noActgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)] = true; 
 			noActgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)] = true; 
 			noActgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)] = true;
 			control.remove(0);
+			rowChecker();
 			spawn();
 				
 			}
 		}
 		else {
-			noActgrid[((control.get(0).getb1().y)/30)][((control.get(0).getb1().x)/30)] = true; 
+			noActgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)] = true; 
 			noActgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)] = true; 
 			noActgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)] = true; 
 			noActgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)] = true;
@@ -98,26 +105,29 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	}
 	
 	public void ActiveDropper() {
-	control.get(0).getb1().y += 30;
-	bgrid[((control.get(0).getb1().y)/30)][((control.get(0).getb1().x)/30)] = control.get(0).getb1();	
+		
+
+	control.get(0).b1.y += 30;
 	control.get(0).b2.y += 30;
-	bgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)] = control.get(0).b2;	
 	control.get(0).b3.y += 30;
-	bgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)] = control.get(0).b3;	
 	control.get(0).b4.y += 30;
+	bgrid[((control.get(0).b1.y)/30)-1][((control.get(0).b1.x)/30)] = null;
+	bgrid[((control.get(0).b2.y)/30)-1][((control.get(0).b2.x)/30)] = null;
+	bgrid[((control.get(0).b3.y)/30)-1][((control.get(0).b3.x)/30)] = null;
+	bgrid[((control.get(0).b4.y)/30)-1][((control.get(0).b4.x)/30)] = null;
+	bgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)] = control.get(0).b1;
+	bgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)] = control.get(0).b2;	
+	bgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)] = control.get(0).b3;	
 	bgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)] = control.get(0).b4;	
 	
+	
 	}
-	 ActionListener taskPerformer = new ActionListener() {
-	      public void actionPerformed(ActionEvent evt) {
-	         dropCheck();
-	      }
-	  };
+	
  
 	
 	public Framer() {
 		JFrame f = new JFrame("Tetris");
-		f.setSize(new Dimension(307, 600));
+		f.setSize(new Dimension(614, 600));
 		f.setBackground(Color.blue);
 		f.add(this);
 		f.setResizable(false);
@@ -144,6 +154,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 		
 	}
 	
+	boolean spawn = true;
 	
 	public void spawn() {
 	int r= rnd.nextInt(7);
@@ -170,7 +181,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	Active j = new Jbox(120,30,Color.LIGHT_GRAY);	
 	control.add(j);
 	}
-	bgrid[((control.get(0).getb1().y)/30)][((control.get(0).getb1().x)/30)] = control.get(0).getb1(); 
+	bgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)] = control.get(0).b1; 
 	bgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)] = control.get(0).b2; 
 	bgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)] = control.get(0).b3; 
 	bgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)] = control.get(0).b4;
@@ -179,19 +190,71 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	
 	
 	public void rowChecker() {
-		
-	for(int c = 0; c<bgrid[0].length; c++ ) {
-		bgrid[18][c] = null;
+	int sum = 0;
+	int start = 0;
+	boolean consecutive = false;
+	for(int r = bgrid.length-1; r >= 0;r--) {
+		for(int c = 0; c < bgrid[r].length;c++){
+			if(noActgrid[r][c] == true) {
+				sum++;
+			}
+		}
+		if(sum == 10) {
+			if(!consecutive) {
+				consecutive = true;
+				start = r;
+			}
+			
+			
+		}else if(sum != 10 && consecutive ){
+			consecutive = false;
+			dropRows(start,r+1);
+			scoreRows(start-r);
+			start = 0;
+		}
+		sum =0;
 	}
 		
 		
 		
 		
+	
+	}
+	
+	private void dropRows(int start, int end) {
 		
+	for(int r = start; r >= end; r--) {
+		for(int col = 0; col < bgrid[r].length; col++) {
+			bgrid[r][col] = null;
+			noActgrid[r][col] = false;
+		}
+	}
+	for(int r = end-1; r >=0; r--) {
+		for(int col = 0; col < bgrid[r].length; col++) {
+			if(bgrid[r][col] != null) {
+				bgrid[r+(start-end)+1][col] = bgrid[r][col];
+				bgrid[r][col].y = (r+(start-end)+1)*30;
+				noActgrid[r+(start-end)+1][col] = true;
+				noActgrid[r][col] = false;
+				bgrid[r][col] = null;
+				
+			}
+		}
+	}
 	}
 	
 	public void scoreRows(int rows) {
-		
+	if(rows == 1) {
+		score+= 40;
+	}else if(rows == 2) {
+		score += 100;
+	}else if(rows == 3) {
+		score += 300;
+	}else {
+		score += 1200;
+	}
+	
+
 	}
 	
 	
@@ -241,16 +304,17 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 		i= (((control.get(0).b4.x)/30) - ((control.get(0).b1.x)/30));
 		if(arg0.getKeyCode() == 38 && control.get(0) != square && noActgrid[((control.get(0).b1.y)/30)-w][((control.get(0).b1.x)/30)+q] == false && noActgrid[((control.get(0).b1.y)/30)-r][((control.get(0).b1.x)/30)+e] == false && noActgrid[((control.get(0).b1.y)/30)-i][((control.get(0).b1.x)/30)+u] == false) {
 		bgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)] = null;
-		
+		bgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)] = null;
+		bgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)] = null;
 		(control.get(0).b2.y) = (control.get(0).b1.y) - (w*30);
 		(control.get(0).b2.x) = (control.get(0).b1.x) + (q*30);
 		bgrid[((control.get(0).b1.y)/30)-w][((control.get(0).b1.x)/30)+q] = control.get(0).b2;
-		bgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)] = null;
+		
 		
 		(control.get(0).b3.y) = (control.get(0).b1.y) - (r*30);
 		(control.get(0).b3.x) = (control.get(0).b1.x) + (e*30);
 		bgrid[((control.get(0).b1.y)/30)-r][((control.get(0).b1.x)/30)+e] = control.get(0).b3;
-		bgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)] = null;
+		
 		
 		(control.get(0).b4.y) = (control.get(0).b1.y) - (i*30);
 		(control.get(0).b4.x) = (control.get(0).b1.x) + (u*30);
@@ -261,12 +325,11 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 		}
 		if(arg0.getKeyCode() == 40 && control.get(0).getb1().y <=510 &&  control.get(0).b2.y <=510  && control.get(0).b3.y <=510  && control.get(0).b4.y <=510) {
 			dropCheck();
+			
 		
 		}
 			
-		if(arg0.getKeyCode() == 84) {
-			rowChecker();
-		}
+		
 	}
 
 	@Override
@@ -275,23 +338,38 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 		System.out.println(arg0.getKeyCode());
 		if(arg0.getKeyCode() == 37 && control.get(0).getb1().x !=0 &&  control.get(0).b2.x !=0  && control.get(0).b3.x !=0  && control.get(0).b4.x !=0 && noActgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)-1] == false &&  noActgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)-1] == false &&  noActgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)-1] == false && noActgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)-1] == false) {
 			control.get(0).b1.x -=30;
-			bgrid[((control.get(0).getb1().y)/30)][((control.get(0).getb1().x)/30)] = control.get(0).getb1();	
 			control.get(0).b2.x -=30;
-			bgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)] = control.get(0).b2;	
 			control.get(0).b3.x -=30;
-			bgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)] = control.get(0).b3;	
 			control.get(0).b4.x -=30;
-			bgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)] = control.get(0).b4;	
+			bgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)+1] = null;
+			bgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)+1] = null;
+			bgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)+1] = null;	
+			bgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)+1] = null;
+			bgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)] = control.get(0).b1;
+			
+			bgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)] = control.get(0).b2;
+			
+			bgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)] = control.get(0).b3;
+			
+			bgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)] = control.get(0).b4;
+			
 		}
-		if(arg0.getKeyCode() == 39 && control.get(0).getb1().x !=270 &&  control.get(0).b2.x !=270  && control.get(0).b3.x !=270  && control.get(0).b4.x !=270 && noActgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)+1] == false &&  noActgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)+1] == false &&  noActgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)+1] == false && noActgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)+1] == false) {
+		if(arg0.getKeyCode() == 39 && control.get(0).b1.x !=270 &&  control.get(0).b2.x !=270  && control.get(0).b3.x !=270  && control.get(0).b4.x !=270 && noActgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)+1] == false &&  noActgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)+1] == false &&  noActgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)+1] == false && noActgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)+1] == false) {
 			control.get(0).b1.x +=30;
-			bgrid[((control.get(0).getb1().y)/30)][((control.get(0).getb1().x)/30)] = control.get(0).getb1();	
 			control.get(0).b2.x +=30;
-			bgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)] = control.get(0).b2;	
 			control.get(0).b3.x +=30;
-			bgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)] = control.get(0).b3;	
 			control.get(0).b4.x +=30;
-			bgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)] = control.get(0).b4;	
+			bgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)-1] = null;
+			bgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)-1] = null;
+			bgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)-1] = null;	
+			bgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)-1] = null;
+			bgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)] = control.get(0).b1;
+			
+			bgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)] = control.get(0).b2;
+			
+			bgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)] = control.get(0).b3;
+			
+			bgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)] = control.get(0).b4;
 		}
 	}
 
