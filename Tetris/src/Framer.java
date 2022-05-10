@@ -28,6 +28,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	private static int score = 0;
 	Font f1 = new Font(Font.SERIF, Font.PLAIN, 50);
 	Font f2 = new Font(Font.SERIF, Font.PLAIN, 25);
+	//draw the score, paint, grid
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		bg.paint(g);
@@ -69,7 +70,8 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	
 	
 	}
-	
+	//get the active block and divid it by 30 so it will not go off the grid and +1 to check the one below the y axis
+	//check all the blocks below the active block and make sure it does not leave the grid
 	public void dropCheck() {
 		ArrayList<Blocks> low = new ArrayList<Blocks>();
 		//if()
@@ -188,7 +190,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	
 	}
 	
-	
+	//check the row to see if it has 10 blocks in one row or not
 	public void rowChecker() {
 	int sum = 0;
 	int start = 0;
@@ -220,7 +222,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 		
 	
 	}
-	
+	//drops the rows when they find 10 blocks in a row
 	private void dropRows(int start, int end) {
 		
 	for(int r = start; r >= end; r--) {
@@ -242,7 +244,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 		}
 	}
 	}
-	
+	//add score to the game
 	public void scoreRows(int rows) {
 	if(rows == 1) {
 		score+= 40;
