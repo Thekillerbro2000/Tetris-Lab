@@ -223,6 +223,8 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	
 	}
 	//drops the rows when they find 10 blocks in a row
+	// Clear completed rows from the field and award score according to
+	// the number of simultaneously cleared rows.
 	private void dropRows(int start, int end) {
 		
 	for(int r = start; r >= end; r--) {
