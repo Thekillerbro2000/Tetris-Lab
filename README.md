@@ -16,19 +16,19 @@ Increase in level increases points gained per line
 ## Code
 
 #### Classes
--Active.class
--Blocks.class
--Framer$1.class
--Framer$2.class
--Framer.class
--Jbox.class
--Lbox.class
--Zbox.class
--Sbox.class
--Tbox.class
--Square.class
--Straight.class
--TetrisGrid.class
+- Active.class
+- Blocks.class
+- Framer$1.class
+- Framer$2.class
+- Framer.class
+- Jbox.class
+- Lbox.class
+- Zbox.class
+- Sbox.class
+- Tbox.class
+- Square.class
+- Straight.class
+- TetrisGrid.class
 
 ## Contributing
 Pull requests are welcome. Contributors, John Paday, Matthew Rierdan, Catherine Tren. 
