@@ -15,7 +15,7 @@ Increase in level increases points gained per line
 
 ## Usage
 
-```python
+```Java
 import Tetris-Lab
 
 # returns 'words'
