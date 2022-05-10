@@ -303,7 +303,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		//
+		//rotating blockwise and counter clockwise
 		int q , w,e,r,t,y,u,i;
 		q= (((control.get(0).b2.y)/30) - ((control.get(0).b1.y)/30));
 		w= (((control.get(0).b2.x)/30) - ((control.get(0).b1.x)/30));
@@ -332,6 +332,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 		
 		
 		}
+		//down arrows key
 		if(arg0.getKeyCode() == 40 && control.get(0).getb1().y <=510 &&  control.get(0).b2.y <=510  && control.get(0).b3.y <=510  && control.get(0).b4.y <=510) {
 			dropCheck();
 			
@@ -344,6 +345,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
+		//move left and right
 		System.out.println(arg0.getKeyCode());
 		if(arg0.getKeyCode() == 37 && control.get(0).getb1().x !=0 &&  control.get(0).b2.x !=0  && control.get(0).b3.x !=0  && control.get(0).b4.x !=0 && noActgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)-1] == false &&  noActgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)-1] == false &&  noActgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)-1] == false && noActgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)-1] == false) {
 			control.get(0).b1.x -=30;
