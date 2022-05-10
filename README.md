@@ -7,7 +7,7 @@ Tetris is a classic game made within java where you try and fit blocks falling f
 
 ## Usage
 
-```java
+```python
 import Tetris
 
 # returns 'words'
