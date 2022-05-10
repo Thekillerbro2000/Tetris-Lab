@@ -31,4 +31,4 @@ Increase in level increases points gained per line
 - TetrisGrid.class
 
 ## Contributing
-Pull requests are welcome. Contributors, John Paday, Matthew Rierdan, Catherine Tren. 
+Pull requests are welcome. Contributors, John Paday, Matthew Rierdan, Kelly Tran. 
