@@ -105,7 +105,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 			
 		}
 	}
-	
+	//erase the row that have 10 blocks and get the perivous line of rows go down by 1 
 	public void ActiveDropper() {
 		
 
@@ -160,7 +160,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	
 	public void spawn() {
 	int r= rnd.nextInt(7);
-
+	//set each kind of block to certain color
 	if(r == 0) {
 	Active straight = new Straight(120,30,Color.red);
 	control.add(straight);
