@@ -74,7 +74,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	//check all the blocks below the active block and make sure it does not leave the grid
 	public void dropCheck() {
 		ArrayList<Blocks> low = new ArrayList<Blocks>();
-		//if()
+		
 		if(((control.get(0).b1.y)/30)+1 != bgrid.length && ((control.get(0).b2.y)/30)+1 != bgrid.length && ((control.get(0).b3.y)/30)+1 != bgrid.length && ((control.get(0).b4.y)/30)+1 != bgrid.length ) {
 			
 			if(noActgrid[((control.get(0).b1.y)/30)+1][((control.get(0).b1.x)/30)] != true && 
@@ -162,25 +162,25 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	int r= rnd.nextInt(7);
 	//set each kind of block to certain color
 	if(r == 0) {
-	Active straight = new Straight(120,30,Color.red);
+	Active straight = new Straight(120,30,Color.red); //set Staright line to red
 	control.add(straight);
 	}else if(r==1) {
-	square = new Square(120,30,Color.cyan);	
+	square = new Square(120,30,Color.cyan);	//set Cyan to Square
 	control.add(square);
 	}else if(r==2) {
-	Active z = new Zbox(120,0,Color.green);
+	Active z = new Zbox(120,0,Color.green); //set Zbox to green
 	control.add(z);
 	}else if(r==3) {
-	Active s = new SBox(120,0,Color.yellow);
+	Active s = new SBox(120,0,Color.yellow); //set Sbox to yellow
 	control.add(s);
 	}else if(r==4) {
-	Active t = new Tbox(120,0,Color.ORANGE);
+	Active t = new Tbox(120,0,Color.ORANGE); //set Tbox to orange
 	control.add(t);
 	}else if(r==5) {
-	Active l = new Lbox(120,30,Color.MAGENTA);
+	Active l = new Lbox(120,30,Color.MAGENTA); //set Lbox to magneta
 	control.add(l);
 	}else {
-	Active j = new Jbox(120,30,Color.LIGHT_GRAY);	
+	Active j = new Jbox(120,30,Color.LIGHT_GRAY); //set Jbox to Lightgray
 	control.add(j);
 	}
 	bgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)] = control.get(0).b1; 
@@ -246,12 +246,16 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	}
 	//add score to the game
 	public void scoreRows(int rows) {
+	//first row that clear add 30
 	if(rows == 1) {
 		score+= 40;
+	//second row that clear add 100
 	}else if(rows == 2) {
 		score += 100;
+	//third row that clear add 300
 	}else if(rows == 3) {
 		score += 300;
+	//else score will go up by 1200
 	}else {
 		score += 1200;
 	}
@@ -297,6 +301,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
+		//
 		int q , w,e,r,t,y,u,i;
 		q= (((control.get(0).b2.y)/30) - ((control.get(0).b1.y)/30));
 		w= (((control.get(0).b2.x)/30) - ((control.get(0).b1.x)/30));
