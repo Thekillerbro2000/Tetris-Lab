@@ -4,11 +4,19 @@ Tetris is a classic game made within java where you try and fit blocks falling f
 
 
 ```
+# How to Play
+
+Use the Up Arrow to rotate the piece, use the down arrow to move the piece down faster, use the left and right arrow keys to move the piece left and right. 
+1 Line complete = 40 Points
+2 Line complete = 100 Points 
+3 Line complete = 300 Points
+4 Line complete = Tetris = 1200 Points
+Increase in level increases points gained per line
 
 ## Usage
 
 ```python
-import Tetris
+import Tetris-Lab
 
 # returns 'words'
 foobar.pluralize('word')
