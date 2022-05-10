@@ -13,19 +13,9 @@ Use the Up Arrow to rotate the piece, use the down arrow to move the piece down 
 4 Line complete = Tetris = 1200 Points
 Increase in level increases points gained per line
 
-## Usage
+## Code
 
-```Java
-import Tetris-Lab
 
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
 ```
 
 ## Contributing
