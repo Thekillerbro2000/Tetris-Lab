@@ -17,23 +17,21 @@ Use the Up Arrow to rotate the piece, use the down arrow to move the piece down 
 
 
 #### Classes
-- Active.class
-- Blocks.class
-- Framer$1.class
-- Framer$2.class
-- Framer.class
-- Jbox.class
-- Lbox.class
-- Zbox.class
-- Sbox.class
-- Tbox.class
-- Square.class
-- Straight.class
-- TetrisGrid.class
+- Active.class - Keeps track of all the active moving blocks 
+- Blocks.class - Creating box objects which make of the shapes
+- Framer.class - Contains all methods that make the blocks move, drop, clear rows, speed, keep score, and test rows
+- Jbox.class - Constructs a J shape box
+- Lbox.class - Constructs a L shape box
+- Zbox.class - Constructs a Z shape box
+- Sbox.class -  Constructs a S shape box
+- Tbox.class -  Constructs a T shape box
+- Square.class - Constructs a Square shape box
+- Straight.class -  Constructs a Straight shape box
+- TetrisGrid.class - Creates the grid for Tetris that is the background.
 
 ## Code
 
-
+Main Code
 		import java.awt.Color;
 		import java.awt.Dimension;
 		import java.awt.Font;
