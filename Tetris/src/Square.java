@@ -1,5 +1,5 @@
 import java.awt.Color;
-
+//draw square
 public class Square extends Active {
 	
 	public Square(int x, int y, Color c) {
