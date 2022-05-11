@@ -1,5 +1,5 @@
 import java.awt.Color;
-
+//draw zbox
 public class Zbox extends Active{
 	
 	public Zbox(int x, int y,Color c) {
