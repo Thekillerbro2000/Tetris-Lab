@@ -1,5 +1,5 @@
 import java.awt.Color;
-
+//draw Sbox
 public class SBox extends Active {
 
 	public SBox(int x, int y,Color c) {
