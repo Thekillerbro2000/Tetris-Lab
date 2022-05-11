@@ -12,7 +12,8 @@ public class TetrisGrid{
 	
 //boolean[][] grid;
 //public Blocks[][] bgrid;
-	
+
+//draw grid
 	public int x,y;
 	
 	public TetrisGrid(int x, int y) {
