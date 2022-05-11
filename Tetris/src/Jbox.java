@@ -1,5 +1,5 @@
 import java.awt.Color;
-
+//draw Jbox
 public class Jbox extends Active{
 	
 	public Jbox(int x, int y,Color c) {
