@@ -33,40 +33,39 @@ Use the Up Arrow to rotate the piece, use the down arrow to move the piece down 
 
 ## Code
 
-Main framer code
 
-  import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
-import java.util.Random;
+		import java.awt.Color;
+		import java.awt.Dimension;
+		import java.awt.Font;
+		import java.awt.Graphics;
+		import java.awt.GridLayout;
+		import java.awt.Rectangle;
+		import java.awt.event.ActionEvent;
+		import java.awt.event.ActionListener;
+		import java.awt.event.KeyEvent;
+		import java.awt.event.KeyListener;
+		import java.awt.event.MouseEvent;
+		import java.awt.event.MouseListener;
+		import java.util.ArrayList;
+		import java.util.Random;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.Timer;
+		import javax.swing.JFrame;
+		import javax.swing.JPanel;
+		import javax.swing.Timer;
 
-public class Framer extends JPanel implements ActionListener, MouseListener, KeyListener{
-	static boolean[][] noActgrid;
-	public static Blocks[][] bgrid;
-	 int delay = 1000;
-	TetrisGrid bg = new TetrisGrid(0,0);
-	ArrayList<Active> control = new ArrayList<Active>();
-	private Random rnd = new Random();
-	Square square;
-	private static int score = 0;
-	Font f1 = new Font(Font.SERIF, Font.PLAIN, 50);
-	Font f2 = new Font(Font.SERIF, Font.PLAIN, 25);
-	//draw the score, paint, grid
-	public void paint(Graphics g) {
+		public class Framer extends JPanel implements ActionListener, MouseListener, KeyListener{
+		static boolean[][] noActgrid;
+		public static Blocks[][] bgrid;
+		int delay = 1000;
+		TetrisGrid bg = new TetrisGrid(0,0);
+		ArrayList<Active> control = new ArrayList<Active>();
+		private Random rnd = new Random();
+		Square square;
+		private static int score = 0;
+		Font f1 = new Font(Font.SERIF, Font.PLAIN, 50);
+		Font f2 = new Font(Font.SERIF, Font.PLAIN, 25);
+		//draw the score, paint, grid
+		public void paint(Graphics g) {
 		super.paintComponent(g);
 		bg.paint(g);
 		
