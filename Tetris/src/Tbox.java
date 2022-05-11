@@ -1,5 +1,5 @@
 import java.awt.Color;
-
+//draw Tbox
 public class Tbox extends Active{
 	
 	public Tbox(int x, int y,Color c) {
