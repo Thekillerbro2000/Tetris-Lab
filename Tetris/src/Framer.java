@@ -210,7 +210,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 			
 		}else if(sum != 10 && consecutive ){
 			consecutive = false;
-			dropRows(start,r+1);
+			dropRows(start,r+1); //calls the drop row method when consecutive is true which drops all the rows that have been classified as true.
 			scoreRows(start-r);
 			start = 0;
 		}
@@ -364,7 +364,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 			
 			bgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)] = control.get(0).b4;
 			
-		}
+		} //tests all the blocks to make sure it doesn't go into any other blocks are goes outside of the grid.
 		if(arg0.getKeyCode() == 39 && control.get(0).b1.x !=270 &&  control.get(0).b2.x !=270  && control.get(0).b3.x !=270  && control.get(0).b4.x !=270 && noActgrid[((control.get(0).b2.y)/30)][((control.get(0).b2.x)/30)+1] == false &&  noActgrid[((control.get(0).b3.y)/30)][((control.get(0).b3.x)/30)+1] == false &&  noActgrid[((control.get(0).b4.y)/30)][((control.get(0).b4.x)/30)+1] == false && noActgrid[((control.get(0).b1.y)/30)][((control.get(0).b1.x)/30)+1] == false) {
 			control.get(0).b1.x +=30;
 			control.get(0).b2.x +=30;
