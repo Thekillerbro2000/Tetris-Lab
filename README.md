@@ -430,5 +430,5 @@ Main Code
 Pull requests are welcome. Contributors, John Paday, Matthew Rierdan, Kelly Tran. 
 ## Acknowledgements 
 
-I wanna thank Alexey Pajitnov for the idea. He was the orginal creator of tetris and without him this wouldn't have been possible. 
+We want to thank Alexey Pajitnov for the idea. He was the orginal creator of tetris and without him this wouldn't have been possible. 
 
