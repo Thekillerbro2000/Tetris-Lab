@@ -43,7 +43,15 @@ public class Blocks {
 
 		}
 		
-		
+		public void ghostpaints(Graphics g) {
+			Graphics2D g2 = (Graphics2D) g;
+			g.setColor(c);
+			g2.fillRect(x, y, 30,30 );
+			g.setColor(Color.black);
+			g2.drawRect(x, y, 30,30 );
+			g2.fillRect(x+2, y+2, 26,26 );
+			
+		}
 		
 		
 		public void setYPos(int drop) {
