@@ -43,6 +43,26 @@ public Color c;
 
 	
 	}
+	public void ghostPaint(Graphics g) {
+		//these are the 2 lines of code needed draw an image on the screen
+		
+		Graphics2D g2 = (Graphics2D) g;
+		b1.ghostpaints(g2);
+		b2.ghostpaints(g2);
+		b3.ghostpaints(g2);
+		b4.ghostpaints(g2);
+		//call update to update the actualy picture location
+		
+		//update();
+		
+		
+		
+	
+		
+		
+
+	
+	}
 	public void update() {
 	b1.y += 30;
 	b2.y += 30;
