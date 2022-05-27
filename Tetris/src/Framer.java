@@ -59,7 +59,7 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 	static int counter = 0;
 	static int test = 0;
 	
-	
+	//run after the certain amount of time
 	ActionListener taskPerformer = new ActionListener() {
 		public void actionPerformed(ActionEvent evt) {
 			dropCheck();
