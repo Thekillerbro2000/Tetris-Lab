@@ -151,7 +151,8 @@ public class Framer extends JPanel implements ActionListener, MouseListener, Key
 		} else {
 
 			gameOver(g);
-			
+			time.stop();
+			counter = 0;
 			t.stop();
 
 		}
