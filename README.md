@@ -2,9 +2,10 @@
 
 Tetris is a classic game made within java where you try and fit blocks falling from the top of the screen into each other. You can move the blocks around, either left to right and/or you can rotate them. The blocks fall at a certain rate, but you can make them fall faster if you're sure of your positioning
 
-![tetris-micro-blizz](https://user-images.githubusercontent.com/70667702/167948879-28354ac1-02a2-4bcc-baa6-882f46c65352.gif)
 
-# How to Play
+
+[Untitled (1)](https://user-images.githubusercontent.com/90801604/170778513-03354310-7dd3-4c83-851b-ec0561c49486.gif)
+
 
 Use the Up Arrow to rotate the piece, use the down arrow to move the piece down faster, use the left and right arrow keys to move the piece left and right. 
 - 1 Line complete = 40 Points
