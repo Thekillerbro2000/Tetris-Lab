@@ -4,7 +4,8 @@ Tetris is a classic game made within java where you try and fit blocks falling f
 
 
 
-[Untitled (1)](https://user-images.githubusercontent.com/90801604/170778513-03354310-7dd3-4c83-851b-ec0561c49486.gif)
+![Untitled (1)](https://user-images.githubusercontent.com/90801604/170778587-204d7c45-6c3d-4ea4-b169-b5f27f37612b.gif)
+
 
 
 Use the Up Arrow to rotate the piece, use the down arrow to move the piece down faster, use the left and right arrow keys to move the piece left and right. 
